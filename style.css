@@ -1,0 +1,22 @@
+html{
+    width: 100%;
+    height: 100%;
+    background-color: blueviolet;
+}
+body{
+    width: 90%;
+    height: 90%;
+    background-color: rgb(236, 236, 178);
+}
+#container{
+    width: 90%;
+    height: 90%;
+    background-color: beige;
+    border: solid 1px black;
+    border-radius: 5px;
+
+}
+
+#title{
+    border-bottom: solid 1px black;
+}

@@ -15,7 +15,7 @@ function tick() {
     audio.play()
 }
 bpm.addEventListener('change', function () {
-    bpmDisplay.innerHTML = this.value + ' bpm'
+    bpmDisplay.innerHTML = this.value
     currentBpm = parseInt(this.value)
     if (isPlay) {
         clearInterval(timer)
@@ -45,7 +45,7 @@ bpmSubtraction.addEventListener('click', function () {
     if (isPlay) {
         clearInterval(timer)
         timer = setInterval(tick, (60 * 1000) / currentBpm)    }
-    bpmDisplay.innerHTML = newBpm + ' bpm';    
+    bpmDisplay.innerHTML = newBpm ;    
 });
 
 bpmAddition.addEventListener('click', function () {    
@@ -55,5 +55,5 @@ bpmAddition.addEventListener('click', function () {
     if (isPlay) {
         clearInterval(timer)
         timer = setInterval(tick, (60 * 1000) / currentBpm)    }
-    bpmDisplay.innerHTML = newBpm + ' bpm';    
+    bpmDisplay.innerHTML = newBpm ;    
 });
