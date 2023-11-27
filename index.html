@@ -4,48 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Metronome</title>
 </head>
 
 <body>
-    <h1>40 bpm</h1>
-    <input type="range" min="40" max="220" id="bpm">
-    <audio src="clap.mp3"></audio>
+    <h1>Metronome JS</h1>
+    <p id="bpmDisplay">40</p>
+    <p>bpm</p>
+    <button id=bpmSubtraction>-</button>
+    <input type="range" min="1" max="220" id="bpm">
+    <button id=bpmAddition>+</button>
+    <audio src="clap.mp3" id="clap"></audio>
     <button id="play">Play</button>
-    <script>
-        const bpm = document.getElementById('bpm')
-        const h1 = document.querySelector('h1')
-        const play = document.getElementById('play')
-        const audio = document.querySelector('audio')
-
-        let currentBpm = 40
-        let isPlay = false
-        let timer = null
-        function tick() {
-            audio.currentTime = 0
-            audio.play()
-        }
-        bpm.addEventListener('change', function () {
-            h1.innerHTML = this.value + ' bpm'
-            currentBpm = parseInt(this.value)
-            if(isPlay){                
-                clearInterval(timer)
-                timer = setInterval(tick, (60 * 1000) / currentBpm)
-            }
-        })
-
-        play.addEventListener('click', function () {
-            if(isPlay){
-                play.innerHTML= 'play'
-                clearInterval(timer)
-            }else{
-                play.innerHTML ='stop'
-                tick()
-                timer = setInterval(tick, (60 * 1000) / currentBpm)
-            }
-            isPlay = !isPlay
-        })
-    </script>
+    <script src="script.js"></script>
 
 </body>
 
