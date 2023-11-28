@@ -14,16 +14,28 @@
             <h1>Metronome JS</h1>
         </div>
         <div id="metronome">
-            <p id="bpmDisplay">40</p>
-            <p>bpm</p>
-            <button id=bpmSubtraction>-</button>
-            <input type="range" min="1" max="220" id="bpm">
-            <button id=bpmAddition>+</button>
+            <div class="display">
+                <div class="displayMain">
+                    <p id="bpmDisplay">40</p>
+                    <p>bpm</p>
+                </div>
+                <div class="button">
+                    <button id="play">Play</button>
+                </div>
+
+
+            </div>
+            <div class="control">
+                <button id=bpmSubtraction>-</button>
+                <input type="range" min="1" max="220" id="bpm">
+                <button id=bpmAddition>+</button>
+            </div>
+
             <audio src="clap.mp3" id="clap"></audio>
-            <button id="play">Play</button>
+
             <script src="script.js"></script>
         </div>
-   
+
 
     </div>
 
