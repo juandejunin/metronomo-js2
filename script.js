@@ -23,37 +23,57 @@ bpm.addEventListener('change', function () {
     }
 })
 
+// Obtén referencias a tus elementos de imagen
+const playImage = document.createElement('img');
+playImage.src = 'play-azul.png';
+
+const stopImage = document.createElement('img');
+stopImage.src = 'stop-azul.png';
+
+// Agrega un evento de clic al elemento de imagen (puede ser una etiqueta <div> o <button>)
 play.addEventListener('click', function () {
     if (isPlay) {
-        play.innerHTML = 'play'
-        clearInterval(timer)
+        // Si está reproduciendo, establece la imagen de "play"
+        play.innerHTML = ''; // Limpia cualquier contenido existente
+        play.appendChild(playImage);
+        clearInterval(timer);
     } else {
-        play.innerHTML = 'stop'
-        tick()
-        timer = setInterval(tick, (60 * 1000) / currentBpm)
+        // Si no está reproduciendo, establece la imagen de "stop"
+        play.innerHTML = ''; // Limpia cualquier contenido existente
+        play.appendChild(stopImage);
+        tick();
+        timer = setInterval(tick, (60 * 1000) / currentBpm);
     }
-    isPlay = !isPlay
-})
+    isPlay = !isPlay;
+});
 
 
 
+
+
+// ...
 
 bpmSubtraction.addEventListener('click', function () {    
     let currentBpm = parseInt(bpmDisplay.innerHTML);     
     let newBpm = currentBpm - 1;
     currentBpm = newBpm
     if (isPlay) {
-        clearInterval(timer)
-        timer = setInterval(tick, (60 * 1000) / currentBpm)    }
-    bpmDisplay.innerHTML = newBpm ;    
+        clearInterval(timer);
+        timer = setInterval(tick, (60 * 1000) / currentBpm);
+    }
+    bpmDisplay.innerHTML = newBpm;    
+    bpm.value = newBpm; // Cambia el valor del rango
 });
 
 bpmAddition.addEventListener('click', function () {    
     let currentBpm = parseInt(bpmDisplay.innerHTML);     
-    let newBpm = currentBpm  + 1;
+    let newBpm = currentBpm + 1;
     currentBpm = newBpm
     if (isPlay) {
-        clearInterval(timer)
-        timer = setInterval(tick, (60 * 1000) / currentBpm)    }
-    bpmDisplay.innerHTML = newBpm ;    
+        clearInterval(timer);
+        timer = setInterval(tick, (60 * 1000) / currentBpm);
+    }
+    bpmDisplay.innerHTML = newBpm;    
+    bpm.value = newBpm; // Cambia el valor del rango
 });
+
