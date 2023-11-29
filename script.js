@@ -15,7 +15,7 @@ function tick() {
     audio.play()
 }
 bpm.addEventListener('change', function () {
-    bpmDisplay.innerHTML = this.value + ' bpm'
+    bpmDisplay.innerHTML = this.value
     currentBpm = parseInt(this.value)
     if (isPlay) {
         clearInterval(timer)
@@ -23,19 +23,26 @@ bpm.addEventListener('change', function () {
     }
 })
 
+const playImage = document.createElement('img');
+playImage.src = './img/play-azul.png';
+
+const stopImage = document.createElement('img');
+stopImage.src = './img/stop-azul.png';
+
+
 play.addEventListener('click', function () {
-    if (isPlay) {
-        play.innerHTML = 'play'
-        clearInterval(timer)
-    } else {
-        play.innerHTML = 'stop'
-        tick()
-        timer = setInterval(tick, (60 * 1000) / currentBpm)
+    if (isPlay) {       
+        play.innerHTML = ''; 
+        play.appendChild(playImage);
+        clearInterval(timer);
+    } else {       
+        play.innerHTML = ''; 
+        play.appendChild(stopImage);
+        tick();
+        timer = setInterval(tick, (60 * 1000) / currentBpm);
     }
-    isPlay = !isPlay
-})
-
-
+    isPlay = !isPlay;
+});
 
 
 bpmSubtraction.addEventListener('click', function () {    
@@ -43,17 +50,22 @@ bpmSubtraction.addEventListener('click', function () {
     let newBpm = currentBpm - 1;
     currentBpm = newBpm
     if (isPlay) {
-        clearInterval(timer)
-        timer = setInterval(tick, (60 * 1000) / currentBpm)    }
-    bpmDisplay.innerHTML = newBpm + ' bpm';    
+        clearInterval(timer);
+        timer = setInterval(tick, (60 * 1000) / currentBpm);
+    }
+    bpmDisplay.innerHTML = newBpm;    
+    bpm.value = newBpm;
 });
 
 bpmAddition.addEventListener('click', function () {    
     let currentBpm = parseInt(bpmDisplay.innerHTML);     
-    let newBpm = currentBpm  + 1;
+    let newBpm = currentBpm + 1;
     currentBpm = newBpm
     if (isPlay) {
-        clearInterval(timer)
-        timer = setInterval(tick, (60 * 1000) / currentBpm)    }
-    bpmDisplay.innerHTML = newBpm + ' bpm';    
+        clearInterval(timer);
+        timer = setInterval(tick, (60 * 1000) / currentBpm);
+    }
+    bpmDisplay.innerHTML = newBpm;    
+    bpm.value = newBpm; 
 });
+
