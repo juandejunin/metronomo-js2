@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metronome</title>
+    <title>Metronomo</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="container">
-        <div id="title">
-            <h1>Metrónomo</h1>
-        </div>
-        <div id="metronome">
-            <div class="display">
-                <div class="displayMain">
-                    <p id="bpmDisplay">40</p>
-                    <p id="bpmText">bpm</p>
-                </div>
-                <div class="button">
-                    <button id="play"><img src='play-azul.png'; alt="Descripción de la imagen"></button>
-                </div>
-            </div>
-
-            
-          
-            <div class="control">
-                
-                <button id=bpmSubtraction><img src='menos-azul.png'; alt="Descripción de la imagen"></button>
-               
-                <input type="range" class="form-range" min="1" max="220" id="bpm">
-               
-                <button id=bpmAddition><img src='mas-azul.png'; alt="Descripción de la imagen"></button>
-            </div>
-
-            <audio src="clap.mp3" id="clap"></audio>
-
-            <script src="script.js"></script>
+      <div id="title">
+        <h1>Metrónomo</h1>
+      </div>
+      <div id="metronome">
+        <div class="display">
+          <div class="displayMain">
+            <p id="bpmDisplay">40</p>
+            <p id="bpmText">bpm</p>
+          </div>
+          <div class="button">
+            <button id="play">
+              <img src="./img/play-azul.png"  alt="Boton de reproduccion">
+            </button>
+          </div>
         </div>
 
+        <div class="control">
+          <button id="bpmSubtraction">
+            <img src="./img/menos-azul.png"  alt="Boton de reducir velocidad">
+          </button>
 
+          <input
+            type="range"
+            class="form-range"
+            min="1"
+            max="220"
+            id="bpm"
+            value="40"
+          >
+
+          <button id="bpmAddition">
+            <img src="./img/mas-azul.png"  alt="Boton de aumentar la velocidad">
+          </button>
+        </div>
+
+        <audio src="./media/clap.mp3" id="clap"></audio>
+
+        <script src="script.js"></script>
+      </div>
     </div>
-
-
-</body>
-
+  </body>
 </html>
