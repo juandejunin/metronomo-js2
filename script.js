@@ -23,23 +23,20 @@ bpm.addEventListener('change', function () {
     }
 })
 
-// Obtén referencias a tus elementos de imagen
 const playImage = document.createElement('img');
-playImage.src = 'play-azul.png';
+playImage.src = './img/play-azul.png';
 
 const stopImage = document.createElement('img');
-stopImage.src = 'stop-azul.png';
+stopImage.src = './img/stop-azul.png';
 
-// Agrega un evento de clic al elemento de imagen (puede ser una etiqueta <div> o <button>)
+
 play.addEventListener('click', function () {
-    if (isPlay) {
-        // Si está reproduciendo, establece la imagen de "play"
-        play.innerHTML = ''; // Limpia cualquier contenido existente
+    if (isPlay) {       
+        play.innerHTML = ''; 
         play.appendChild(playImage);
         clearInterval(timer);
-    } else {
-        // Si no está reproduciendo, establece la imagen de "stop"
-        play.innerHTML = ''; // Limpia cualquier contenido existente
+    } else {       
+        play.innerHTML = ''; 
         play.appendChild(stopImage);
         tick();
         timer = setInterval(tick, (60 * 1000) / currentBpm);
@@ -47,11 +44,6 @@ play.addEventListener('click', function () {
     isPlay = !isPlay;
 });
 
-
-
-
-
-// ...
 
 bpmSubtraction.addEventListener('click', function () {    
     let currentBpm = parseInt(bpmDisplay.innerHTML);     
@@ -62,7 +54,7 @@ bpmSubtraction.addEventListener('click', function () {
         timer = setInterval(tick, (60 * 1000) / currentBpm);
     }
     bpmDisplay.innerHTML = newBpm;    
-    bpm.value = newBpm; // Cambia el valor del rango
+    bpm.value = newBpm;
 });
 
 bpmAddition.addEventListener('click', function () {    
@@ -74,6 +66,6 @@ bpmAddition.addEventListener('click', function () {
         timer = setInterval(tick, (60 * 1000) / currentBpm);
     }
     bpmDisplay.innerHTML = newBpm;    
-    bpm.value = newBpm; // Cambia el valor del rango
+    bpm.value = newBpm; 
 });
 
